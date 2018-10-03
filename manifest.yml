@@ -1,0 +1,8 @@
+---
+applications:
+- name: examen_dc
+  memory: 250M
+  instances: 1
+  buildpack: python_buildpack
+  services:
+  - examen_dc
