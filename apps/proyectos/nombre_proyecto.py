@@ -16,4 +16,4 @@ class NombreProyecto(ValueObject):
         try:
             return Result.ok(cls(nombre))
         except Exception as ex:
-            return Result.fail({'name':  [str(ex)]})
+            return Result.fail({'NombreProyecto':  [str(ex)]})

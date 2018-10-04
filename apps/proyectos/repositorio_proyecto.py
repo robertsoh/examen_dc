@@ -14,6 +14,7 @@ class RepositorioProyecto(object):
     def create(self, proyecto):
         try:
             ORMProyecto.objects.create(nombre=proyecto.nombre.value,
-                                       cliente_id=proyecto.cliente.id)
+                                       cliente_id=proyecto.cliente.id,
+                                       presupuesto=proyecto.presupuesto)
         except Exception as ex:
             raise ValueError(str(ex))
