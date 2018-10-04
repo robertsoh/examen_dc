@@ -32,7 +32,9 @@ class ClienteCreateAPIView(APIView):
         dto = CrearClienteProyectoUsuarioDto(
             NombreCliente=request.data.get('NombreCliente'),
             NombreProyecto=request.data.get('NombreProyecto'),
-            NombreUsuario=request.data.get('NombreUsuario'))
+            NombreUsuario=request.data.get('NombreUsuario'),
+            Presupuesto=request.data.get('Presupuesto')
+        )
         nombre_cliente_o_error = NombreCliente.create(dto.NombreCliente)
         nombre_proyecto_o_error = NombreProyecto.create(dto.NombreProyecto)
         nombre_usuario_o_error = NombreUsuario.create(dto.NombreUsuario)
@@ -44,7 +46,8 @@ class ClienteCreateAPIView(APIView):
         cliente = Cliente(nombre=nombre_cliente_o_error.value)
         cliente = self._repositorio_cliente.create(cliente)
         proyecto = Proyecto(nombre=nombre_proyecto_o_error.value,
-                            cliente=cliente)
+                            cliente=cliente,
+                            presupuesto=dto.Presupuesto)
         self._repositorio_proyecto.create(proyecto)
         usuario = Usuario(username=nombre_usuario_o_error.value,
                           cliente=cliente,
