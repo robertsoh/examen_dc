@@ -3,5 +3,5 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^test/$', views.TestView.as_view(), name='test'),
+    url(r'^clientes$', views.ClienteCreateAPIView.as_view(), name='crear_cliente'),
 ]

@@ -1,8 +1,8 @@
 ---
 applications:
-- name: examen_dc
+- name: examen_dc_roh
   memory: 250M
   instances: 1
   buildpack: python_buildpack
   services:
-  - examen_dc
+  - examen_dc_pgsql

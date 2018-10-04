@@ -56,3 +56,12 @@ class Result(object):
     @classmethod
     def fail(cls, error):
         return cls(True, None, error)
+
+    @classmethod
+    def combine(cls, results):
+        is_failure = any([result.is_failure for result in results])
+        errors = []
+        for result in results:
+            if result.is_failure:
+                errors.append(result.error)
+        return is_failure, errors
